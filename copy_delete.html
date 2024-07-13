@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Clear Attendance</title>
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+
+<script>
+	// Check if the flag is set in localStorage
+	if (!localStorage.getItem('visitedIndex')) {
+			// If the flag is not set, redirect to index.html
+			window.location.href = 'index.html';
+	}
+</script>
+
+<style>
+	@media screen and (min-width: 480px) {
+  .navbar-expand-lg .navbar-collapse {
+display: flex!important;
+justify-content: space-around;
+flex-basis: auto;
+
+}
+
+}
+.navbar-light .navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 255, 0, 1)' stroke-width='5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+		color: brown;
+	}
+
+</style>
+<body oncontextmenu="return false">
+	
+	<div class="limiter">
+		<nav style="background-color: darkgreen;" class="navbar navbar-expand-lg navbar-light">
+			<a class="navbar-brand text-light" href="./index1.html"><i class="fa fa-home text-light" aria-hidden="true"></i>LICA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li style="color: whitesmoke;" class="nav-item active">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./database.html">DataBase <span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./index3.html">Member's Info</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./index2.html">Add New Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./attendance.html">View Attendance</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./edit.html">Edit Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./count2.html">Attendance Stats</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./delete_member.html">Delete Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./attendance_archive.html">Attendance Archive</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+			<div  style="border-radius: 2%;border: 13px solid rgb(20, 23, 20);" class="wrap-login100">
+				
+				<div class="form-container text-center">
+					<h3 style="font-weight: 800;color: whitesmoke;">CLEAR SHEET</h3>
+					<button style="width: 190px;border-radius: 23px;" class="text-su btn btn-success mt-5 mb-5" id="copyAndDeleteButton">Delete Data</button>
+					<div style="color: rgb(235, 232, 235);" id="message" class="message"></div>
+				</div>
+			<div class="text-center">
+				<button class="text-center" style="background-color: blue; width: 60px;height: 30px;margin-top: 20px;border-radius: 12px;">
+					<a style="color: white;text-decoration: none;font-weight: 800;" href="./index1.html">HOME</a>
+			</button>
+			</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="js2/copy_delete.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Convocation Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main2.css">
+	<link rel="stylesheet" type="text/css" href="css2/index.css">
+<!--===============================================================================================-->
+</head>
+
+<script>
+	// Check if the flag is set in localStorage
+	if (!localStorage.getItem('visitedIndex')) {
+			// If the flag is not set, redirect to index.html
+			window.location.href = 'index.html';
+	}
+</script>
+
+
+
+<style>
+	body{
+		height: 100vh;}
+
+	.navbar-light .navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 255, 0, 1)' stroke-width='5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+		color: brown;
+	}
+
+	
+
+	@media screen and (min-width: 480px) {
+  .navbar-expand-lg .navbar-collapse {
+display: flex!important;
+justify-content: space-around;
+flex-basis: auto;
+
+}
+
+}
+
+</style>
+
+<!-- <body> -->
+<body oncontextmenu="return false">
+	
+	
+	<div class="limiter">
+		<nav style="background-color: darkgreen;" class="navbar navbar-expand-lg navbar-light fixed-top">
+			<a class="navbar-brand text-light" href="./index1.html"><i class="fa fa-home text-light" aria-hidden="true"></i>LICA</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li  class="nav-item active">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./database.html">DataBase<span class="sr-only">(current)</span></a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./index3.html">Member's Info</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./index2.html">Add New Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./attendance.html">View Attendance</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./edit.html">Edit Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./count2.html">Attendance Stats</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./delete_member.html">Delete Member</a>
+					</li>
+					<li class="nav-item">
+						<a style="font-size: 16px;" class="nav-link text-light" href="./attendance_archive.html">Attendance Archive</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container-login100" style="background-image: url('images/bg3.png');">
+			<div  style="border-radius: 2%;border: 4px solid rgb(103, 170, 103);" class="wrap-login100">
+				<form class="login100-form" id="form">
+					<span class="login100-form-logo">
+						<p><img src="media/img12.png" width="100px" height="120px"></p> 
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						lica Register 
+					</span>
+
+					<div class="wrap-input100 validate-input mt-4" data-validate="Enter keyNumber">
+						<input style="letter-spacing: 3px;" class="input100 text-center" type="text" pattern="[0-9pP]*" name="keyNumber" id="keyNumber" placeholder="Key Number" required>
+						<span class="focus-input100" data-placeholder="&#xf162;"></span>
+					</div>
+					 
+					<div class="container-login100-form-btn">
+						<button type="submit" id="submit" class="login100-form-btn">
+							SUBMIT
+						</button>
+					</div>
+			
+					<div class="popup" id="popup">
+						<div class="popup-content">
+							<!-- <span class="close" onclick="closePopup()">&times;</span> -->
+							<h2>GREETINGS BELOVETH</h2>
+							<button style="margin-top: 20px;" class="popbu" onclick="closePopup()">ok</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+	<script src="js2/index1.js"></script>
+
+</body>
+</html>

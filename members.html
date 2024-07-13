@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Members</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0a0101;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      height: 100vh; /* Set body height to full viewport height */
+      display: flex;
+      flex-direction: column; /* Arrange children in a column */
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      width: 100%; /* Make container full width */
+      height: 100vh; /* Make container full height */
+      background-color: #fff;
+      border-radius: 0; /* Remove border radius */
+      box-shadow: none; /* Remove box shadow */
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    iframe {
+      width: 100%;
+      height: 90vh; /* Adjust height to accommodate the button */
+      border: none;
+      display: none; /* Initially hide the iframe */
+    }
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .back-button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-bottom: 10px; /* Add some space below the button */
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .back-button:hover {
+      background-color: #2980b9;
+    }
+    @media (min-width: 601px) {
+      .container {
+        max-width: 1200px;
+        height: 90vh; /* Slightly less height on larger screens */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      iframe {
+        height: calc(100% - 50px); /* Full height of the container minus the button height */
+      }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  
+  <div class="container">
+    <button class="back-button" onclick="window.location.href='index1.html'">Back Home</button>
+    <div class="spinner" id="spinner"></div>
+    <iframe src="https://script.google.com/macros/s/AKfycbzAnTp_NZdA41Og1VdZxunN9ub0MP0dBYSqVLsW9A2ncGRjJ0yaCQ-hH8wmK0711y6Lyw/exec" id="iframe" onload="iframeLoaded()"></iframe>
+  </div>
+
+  <script>
+    function iframeLoaded() {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('iframe').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registered Members</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0a0101;
+      margin: 0; /* Remove default margin */
+      padding: 0; /* Remove default padding */
+      height: 100vh; /* Set body height to full viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      width: 100%; /* Make container full width */
+      height: 100vh; /* Make container full height */
+      background-color: #fff;
+      border-radius: 0; /* Remove border radius */
+      box-shadow: none; /* Remove box shadow */
+      position: relative;
+    }
+    iframe {
+      width: 100%;
+      height: 100vh; 
+      border: none;
+      display: none; /* Initially hide the iframe */
+    }
+    .spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @media (min-width: 601px) {
+      .container {
+        max-width: 1200px;
+        height: 90vh; /* Slightly less height on larger screens */
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      iframe {
+        height: 100%; /* Full height of the container */
+      }
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  <div class="container">
+    <div class="spinner" id="spinner"></div>
+    <iframe src="https://script.google.com/macros/s/AKfycbzVfrWsWrv3I5Ku-eBtg3TLoqr0_89nMn15jVvsTVInq5jDRaVH1S4y2Oz_k49KCM4qsA/exec" id="iframe" onload="iframeLoaded()"></iframe>
+  </div>
+
+        
+      
+
+
+
+  <script>
+    function iframeLoaded() {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('iframe').style.display = 'block';
+    }
+  </script>
+</body>
+</html> -->

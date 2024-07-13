@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Member Attendance Count</title>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <!-- <script src="script.js"></script>  -->
+</head>
+<body>
+    <h1>Member Attendance Count</h1>
+    <input type="text" id="search-input" placeholder="Enter date (e.g., June 23, 2024)">
+    <button onclick="searchData()">Search</button>
+
+    <h2>Attendance Summary</h2>
+    <div id="summary">
+        <!-- Summary of counts will be displayed here -->
+    </div>
+</body>
+</html>
+
+
+ <script>
+const CLIENT_ID = '141826342909-4v8t7n6kefvsi78hasl7jespjp9do6oo.apps.googleusercontent.com';
+const API_KEY = 'AIzaSyDfFXvLzRymLl4g0Wwt5uKyCu6g9Pil-tQ';
+const SPREADSHEET_ID = '17gy5jfAQjA_7EWrQPmiFKnWBskcNWC3NEO-ZHqMqBWE';
+
+let data = [];
+const dateColumnIndex = 9; // Update with the actual index of the date column
+
+gapi.load('client', initClient);
+
+function initClient() {
+    gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+    }).then(function() {
+        return gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: SPREADSHEET_ID,
+            range: 'CopiedData!A3:J', // Update with your sheet name and range
+        });
+    }).then(function(response) {
+        data = response.result.values;
+    }).catch(function(error) {
+        console.error('Error fetching data:', error);
+    });
+}
+
+function searchData() {
+    const query = document.getElementById('search-input').value.toLowerCase();
+    const filteredData = data.filter(row => {
+        const dateString = row[dateColumnIndex];
+        const dateArray = dateString.split(" at ");
+        const formattedDate = dateArray[0].trim().toLowerCase();
+        
+        return formattedDate.includes(query);
+    });
+
+    countMembers(filteredData);
+}
+
+function countMembers(filteredData) {
+    const counts = {
+        'Fr.': 0,
+        'Sr.': 0,
+        'GC.': 0,
+        'RM.': 0,
+        'Jr.': 0,
+        'Colombe.': 0
+    };
+
+    filteredData.forEach(row => {
+        const namePrefix = row[1].split(' ')[0];
+        if (counts.hasOwnProperty(namePrefix)) {
+            counts[namePrefix]++;
+        }
+    });
+
+    const totalCount = filteredData.length;
+
+    displaySummary(counts, totalCount);
+}
+
+function displaySummary(counts, totalCount) {
+    const summaryDiv = document.getElementById('summary');
+    summaryDiv.innerHTML = '';
+
+    const totalP = document.createElement('p');
+    totalP.textContent = `Total Attendees: ${totalCount}`;
+    summaryDiv.appendChild(totalP);
+
+    for (const prefix in counts) {
+        const p = document.createElement('p');
+        p.textContent = `${prefix}: ${counts[prefix]}`;
+        summaryDiv.appendChild(p);
+    }
+}
+
+</script>
+</body>
+</html>

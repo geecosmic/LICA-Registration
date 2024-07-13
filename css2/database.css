@@ -1,0 +1,66 @@
+
+    body {
+      background-color: #D6D4D2;
+      font-family: "Roboto";
+      font-size: 20px;
+    }
+    h3 {
+      color: rgb(187, 244, 14);
+    }
+    .card-b td {
+      padding: 5px;
+      background-color: black;
+    }
+    .card-b .card {
+      width: 100%;
+      /* margin-bottom: 10px; */
+      background-color: green;
+      color: whitesmoke;
+      border-radius: 14px;
+    }
+    .container {
+      position: relative;
+    }
+    .search-container {
+      margin-bottom: 20px;
+    }
+    button{
+      width: 100px;
+    }
+    .inp{
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+@media screen and (min-width: 480px) {
+  .navbar-expand-lg .navbar-collapse {
+display: flex!important;
+justify-content: space-around;
+flex-basis: auto;
+
+}
+
+}
+.navbar-light .navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 255, 0, 1)' stroke-width='5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+		color: brown;
+	}
+
+  .spinner {
+      position: absolute;
+      top: 98%;
+      left: 38%;
+      transform: translate(-50%, -50%);
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+

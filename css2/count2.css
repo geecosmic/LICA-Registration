@@ -1,0 +1,27 @@
+
+body{
+  font-family: "Roboto";
+}
+.boil{
+  /* padding: 10px; */
+  margin-top: 30px;
+}
+
+.bst{
+  width: 65px;
+  border-radius: 14px;
+  background-color: rgb(58, 34, 93);
+  color: whitesmoke;
+}
+
+a{
+  color: whitesmoke;
+}
+
+.tp{
+  text-align: center;
+
+}
+.tp,p{
+  letter-spacing: 7px;
+}

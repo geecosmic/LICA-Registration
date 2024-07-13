@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <script src="https://apis.google.com/js/api.js"></script>
+  <title>LICA ATTENDANCE</title>
+
+  <script>
+    // Check if the flag is set in localStorage
+    if (!localStorage.getItem('visitedIndex')) {
+        // If the flag is not set, redirect to index.html
+        window.location.href = 'index.html';
+    }
+  </script>
+
+
+  <style>
+    body {
+      background-color:#D6D4D2;
+      font-family: "Roboto";
+      font-size: 20px;
+      background-image: url('images/bg3.png');
+    }
+    h3 {
+      color: rgb(246, 238, 8);
+      font-weight: 800;
+    }
+    .card-b td {
+      padding: 5px;
+      background-color: black;
+      text-align: left;
+    }
+    .card-b .card {
+      width: 100%;
+      /* margin-bottom: 10px; */
+      background-color: rgb(30, 74, 21);
+      color: whitesmoke;
+      border-radius: 14px;
+    }
+    .container {
+      text-align: center;
+    }
+    .search-container {
+      margin-bottom: 20px;
+    }
+.inp{
+  height: 50px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+  padding-left: 20px;
+}
+.navbar-light .navbar-toggler-icon {
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(240, 255, 0, 1)' stroke-width='5' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+		color: brown;
+	}
+
+
+button{
+  width: 100px;
+}
+
+@media screen and (min-width: 480px) {
+  .navbar-expand-lg .navbar-collapse {
+display: flex!important;
+justify-content: space-around;
+flex-basis: auto;
+
+}
+
+}
+
+
+
+  </style>
+</head>
+<body oncontextmenu="return false">
+<!-- <body> -->
+  <nav style="background-color: darkgreen; " class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand text-light" href="./index1.html">LICA</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li style="color: whitesmoke;" class="nav-item active">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./database.html">DataBase<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./index3.html">Member's Info</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./index2.html">Add New Member</a>
+        </li>
+        
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./edit.html">Edit Member</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./count2.html">Attendance Stats</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./delete_member.html">Delete Member</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 16px;" class="nav-link text-light" href="./attendance_archive.html">Attendance Archive</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-3">
+          <h3 style="font-weight:800" class="text-center mb-4 pt-3 pb-2">ATTENDANCE</h3>
+
+      <!-- <div class="search-container text-center">
+        <button class="btn btn-secondary mb-2" onclick="displayData(data); refinp()">Refresh</button>
+        <div class="container col-12 tinp">
+          <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+              <input type="text" id="search-input" class="form-control inp" placeholder="(e.g., June 11, 2024)" />
+            </div>
+            <div class="col-1"></div>
+          </div>
+        </div>  
+          <button class="btn btn-primary mt-2" onclick="searchData()">Search</button>
+      
+      </div> -->
+      <table class="card-b table table-borderless" id="data-table">
+        <!-- Table data will be inserted here -->
+      </table>
+  </div>
+
+
+<script>
+
+    const CLIENT_ID = '141826342909-4v8t7n6kefvsi78hasl7jespjp9do6oo.apps.googleusercontent.com';
+    const API_KEY = 'AIzaSyDfFXvLzRymLl4g0Wwt5uKyCu6g9Pil-tQ';
+    const SPREADSHEET_ID = '17gy5jfAQjA_7EWrQPmiFKnWBskcNWC3NEO-ZHqMqBWE';
+
+    let data = [];
+    const dateColumnIndex = 9; // Update with the actual index of the date column
+
+    gapi.load('client', initClient);
+
+    function initClient() {
+      gapi.client.init({
+        apiKey: API_KEY,
+        clientId: CLIENT_ID,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
+      }).then(function() {
+        return gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: SPREADSHEET_ID,
+          range: 'Sheet1!A3:J', // Update with your sheet name and range
+        });
+      }).then(function(response) {
+        data = response.result.values;
+        displayData(data);
+      }).catch(function(error) {
+        console.error('Error fetching data:', error);
+      });
+    }
+
+    function displayData(data) {
+      const table = document.getElementById('data-table');
+      table.innerHTML = '';
+
+      data.forEach(function(row) {
+        const tr = document.createElement('tr');
+        const td = document.createElement('td');
+
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+
+        const cardBodyDiv = document.createElement('div');
+        cardBodyDiv.className = 'card-body';
+
+        const keynumberText = document.createElement('p');
+        keynumberText.className = 'card-text';
+        keynumberText.textContent = `Keynumber: ${row[0]}`;
+
+        const nameText = document.createElement('p');
+        nameText.className = 'card-text';
+        nameText.textContent = `Name: ${row[1]}`;
+
+        const dateText = document.createElement('p');
+        dateText.className = 'card-text';
+        dateText.textContent = `Date/Time: ${row[dateColumnIndex]}`;
+
+        cardBodyDiv.appendChild(keynumberText);
+        cardBodyDiv.appendChild(nameText);
+        cardBodyDiv.appendChild(dateText);
+        cardDiv.appendChild(cardBodyDiv);
+        td.appendChild(cardDiv);
+        tr.appendChild(td);
+
+        table.appendChild(tr);
+      });
+    }
+
+    function searchData() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const filteredData = data.filter(row => {
+        const dateString = row[dateColumnIndex];
+        const dateArray = dateString.split("at");
+        const formattedDate = dateArray[0].trim().toLowerCase();
+        
+        return formattedDate.includes(query);
+      });
+      displayData(filteredData);
+    }
+    
+    function refinp(){
+    document.getElementById('search-input').value = '';
+
+      }
+  
+</script>
+
+
+
+</body>
+</html>

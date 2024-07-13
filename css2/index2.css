@@ -1,0 +1,40 @@
+
+  body{
+    background-color: darkblue;
+    font-family: "Roboto";
+    color: whitesmoke;
+    /* overflow: hidden; */
+    /* height: 300px; */
+  }
+  .container{
+    margin-top: 40px;
+    text-align: center;
+  }
+  button{
+    margin-top: 6px;
+    background-color: rgb(55, 106, 58);
+    width: 170px;
+    height: 40px;
+    color: whitesmoke;
+    font-size:large;
+    border-radius: 23px;
+  }
+  button:active{
+    background-color: rgb(59, 29, 87);
+  }
+
+h2{
+  padding-top: 30px;
+}
+
+input{
+  text-align: center;
+  font-weight: 700;
+  border: 2px solid blue;
+}
+
+  .form-control{
+    border-radius: 3px;
+    border: 9px solid blue;
+  }
+
